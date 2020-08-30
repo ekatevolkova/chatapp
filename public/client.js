@@ -1,5 +1,6 @@
 const socket = io();
 
+// variables for DOM elems
 const message = document.getElementById('message');
 const handle = document.getElementById('handle');
 const output = document.getElementById('output');
@@ -13,8 +14,7 @@ message.addEventListener('keypress', () =>{
 })
 
 
-
-//send messages to clients
+// button click send messages to server, then gets sent to clients 
 button.addEventListener('click', () =>{
     socket.emit('userMessage', {
         handle: handle.value,
@@ -31,5 +31,5 @@ socket.on('userMessage', (data) => {
     output.innerHTML += '<p> <strong>' + data.handle + ': </strong>' + data.message + '</p>'
 })
 socket.on('userTyping', (data) => {
-    typing.innerHTML = '<p> <strong>' + data + 'is typing... </strong></p>'
+    typing.innerHTML = '<p> <strong>' + data + ' is typing... </strong></p>'
 })
