@@ -30,6 +30,6 @@ socket.on('userMessage', (data) => {
     typing.innerHTML ="";
     output.innerHTML += '<p> <strong>' + data.handle + ': </strong>' + data.message + '</p>'
 })
-socket.on('userTyping', (data)=> {
+socket.on('userTyping', (data) => {
     typing.innerHTML = '<p> <strong>' + data + 'is typing... </strong></p>'
 })
